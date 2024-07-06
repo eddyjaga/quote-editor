@@ -31,7 +31,7 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_url
     assert_text @quote.name
 
-    click_on "Delete", match: :first
+    click_on 'Delete', match: :first
     assert_no_text @quote.name
   end
 
