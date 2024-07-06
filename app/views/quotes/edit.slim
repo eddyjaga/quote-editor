@@ -1,0 +1,8 @@
+main.container 
+  = link_to sanitize("&larr; Back to quotes"), quotes_path, class: 'btn btn-secondary'
+
+  .header 
+    h1 Edit Quote
+  =form_for(@quote, url: quote_path(@quote), method: :patch) do |form|
+    = render "form", quote: @quote, form: form
+    = form.submit 'Update Quote', class: 'btn btn-primary'

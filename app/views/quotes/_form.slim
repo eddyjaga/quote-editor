@@ -1,0 +1,4 @@
+-if quote.errors.any?
+  .alert.alert-danger
+    = quote.errors.full_messages.to_sentence.capitalize 
+= form.text_field :name, class: "form-control", placeholder: "Name", required: true, autofocus: true

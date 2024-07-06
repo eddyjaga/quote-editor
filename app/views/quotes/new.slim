@@ -1,0 +1,9 @@
+main.container 
+  = link_to sanitize("&larr; Back to quotes"), quotes_path, class: 'btn btn-secondary'
+
+  .header 
+    h1 New Quote
+
+  = form_for(@quote, url: quotes_path, method: :post) do |form|
+    = render "form", form: form, quote: @quote
+    = form.submit 'Create Quote', class: 'btn btn-primary'
