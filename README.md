@@ -9,6 +9,7 @@ Just fun and learn more about Rails 7, Turbo, Stimulus, and Hotwire. You can for
 - Ruby 3.3.0
 - Node 18.7.0
 - Rails 7.1.3
+- Yarn 1.22.22
 
 ## Installation
 
