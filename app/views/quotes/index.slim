@@ -1,5 +1,7 @@
 main.container 
-  .header 
+  .header.mb-4
     h1 Quotes
-    = link_to 'New Quote', new_quote_path, class: 'btn btn-primary'
-  =render partial: 'quote'
+    = link_to 'New Quote', new_quote_path, class: 'btn btn-primary', data: { turbo_frame: "new_quote" }
+  = turbo_frame_tag "new_quote"
+  div id="quotes"
+    =render @quotes

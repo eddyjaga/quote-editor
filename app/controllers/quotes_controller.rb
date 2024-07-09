@@ -16,9 +16,15 @@ class QuotesController < ApplicationController
     @quote = Quote.new(quote_params)
 
     if @quote.save
-      redirect_to quotes_path, notice: "Quote was successfully created."
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to quotes_path, notice: "Quote was successfully created." }
+      end
     else
-      render :new
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('new_quote', partial: 'quotes/form', locals: { quote: @quote }) }
+        format.html { render :new }
+      end
     end
   end
 
@@ -35,7 +41,10 @@ class QuotesController < ApplicationController
 
   def destroy
     @quote.destroy
-    redirect_to quotes_path, notice: "Quote was successfully destroyed."
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to quotes_path, notice: "Quote was successfully destroyed." }
+    end
   end
 
   private

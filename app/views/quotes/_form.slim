@@ -1,4 +1,6 @@
--if quote.errors.any?
-  .alert.alert-danger
-    = quote.errors.full_messages.to_sentence.capitalize 
-= form.text_field :name, class: "form-control", placeholder: "Name", autofocus: true
+=form_with(model: quote, local: true, id: 'new_quote_form') do |form|
+  -if quote.errors.any?
+    .alert.alert-danger
+      = quote.errors.full_messages.to_sentence.capitalize
+  = form.text_field :name, class: "form-control", placeholder: "Name", autofocus: true
+  = form.submit "Create quote", class: "btn btn-primary"

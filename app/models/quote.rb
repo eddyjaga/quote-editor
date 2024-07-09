@@ -8,5 +8,6 @@
 #  updated_at :datetime         not null
 #
 class Quote < ApplicationRecord
+  default_scope { order(created_at: :desc) }
   validates :name, presence: true
 end
