@@ -1,4 +1,4 @@
-main.container 
-= link_to sanitize("&larr; Back to quotes"), quotes_path, class: 'btn btn-secondary'
-.header 
-  h1 = @quote.name
+main.container
+  = link_to sanitize("&larr; Back to quotes"), quotes_path, class: 'btn btn-secondary'
+  .header 
+    h1 = @quote.name
